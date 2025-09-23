@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Misioneros Laicos Amigos del Verbo</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <style>
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 2rem auto;
+            max-width: 900px;
+        }
+
+        .blog-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-top: 4px solid #e74c3c;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-item h3 {
+            color: #2d1b4e;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-fecha {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .blog-extracto {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .btn-leer {
+            display: inline-block;
+            background: #2d1b4e;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .btn-leer:hover {
+            background: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../index.html#espiritualidad">Espiritualidad</a></li>
+            <li><a href="../index.html#formacion">Formación</a></li>
+            <li><a href="../index.html#actividades">Actividades</a></li>
+            <li><a href="../index.html#galerias">Galerías</a></li>
+            <li><a href="../index.html#contacto">Contacto</a></li>
+            <li><a href="index.html" class="activo">Blog</a></li>
+        </ul>
+    </nav>
+
+    <section class="seccion">
+        <h2>📖 Nuestro Blog: Reflexiones y Testimonios</h2>
+        <p>Aquí compartimos pensamientos, experiencias y enseñanzas que nutren nuestro caminar como comunidad.</p>
+
+        <div class="blog-grid">
+            <!-- Artículo 1 -->
+            <article class="blog-item">
+                <div class="blog-fecha">10 Junio 2025</div>
+                <h3>El Verbo que se hace presente en lo cotidiano</h3>
+                <p class="blog-extracto">¿Dónde encontrar a Dios en medio del ruido, las obligaciones y el cansancio? En este artículo, exploramos cómo el Verbo habita en los pequeños gestos de cada día...</p>
+                <a href="articulo1.html" class="btn-leer">Leer artículo completo</a>
+            </article>
+
+            <!-- Artículo 2 (puedes agregar más copiando este bloque) -->
+            <article class="blog-item">
+                <div class="blog-fecha">3 Junio 2025</div>
+                <h3>Testimonio: Mi encuentro con la comunidad</h3>
+                <p class="blog-extracto">“Nunca pensé que encontraría un lugar donde mi fe y mi servicio pudieran crecer juntos...” — Compartimos el testimonio de Ana, miembro desde hace 2 años.</p>
+                <a href="#" class="btn-leer">Leer artículo completo</a>
+            </article>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Misioneros Laicos Amigos del Verbo — “Muchos Rostros, Un Solo Corazón”</p>
+    </footer>
+
+</body>
+</html>
