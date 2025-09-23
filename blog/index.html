@@ -6,57 +6,101 @@
     <title>Blog - Misioneros Laicos Amigos del Verbo</title>
     <link rel="stylesheet" href="../css/estilo.css">
     <style>
+        .blog-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .categorias {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .categoria-btn {
+            background: #f8f9fa;
+            border: 2px solid #2d1b4e;
+            color: #2d1b4e;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .categoria-btn:hover,
+        .categoria-btn.activo {
+            background: #2d1b4e;
+            color: white;
+        }
+
         .blog-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 2rem;
-            margin: 2rem auto;
+            gap: 2.5rem;
+            margin: 0 auto;
             max-width: 900px;
         }
 
         .blog-item {
             background: white;
-            padding: 2rem;
             border-radius: 16px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            border-top: 4px solid #e74c3c;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
         }
 
         .blog-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+        }
+
+        .blog-miniatura {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .blog-contenido {
+            padding: 1.8rem;
+        }
+
+        .blog-fecha {
+            color: #e74c3c;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
         }
 
         .blog-item h3 {
             color: #2d1b4e;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .blog-fecha {
-            color: #7f8c8d;
-            font-size: 0.9rem;
+            font-size: 1.6rem;
             margin-bottom: 1rem;
-            font-weight: 600;
+            line-height: 1.3;
         }
 
         .blog-extracto {
             margin-bottom: 1.5rem;
             line-height: 1.7;
+            color: #555;
         }
 
         .btn-leer {
             display: inline-block;
             background: #2d1b4e;
             color: white;
-            padding: 0.6rem 1.2rem;
+            padding: 0.7rem 1.4rem;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 8px;
             font-weight: 600;
+            transition: background 0.3s;
         }
 
         .btn-leer:hover {
             background: #e74c3c;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
@@ -75,24 +119,50 @@
     </nav>
 
     <section class="seccion">
-        <h2>📖 Nuestro Blog: Reflexiones y Testimonios</h2>
-        <p>Aquí compartimos pensamientos, experiencias y enseñanzas que nutren nuestro caminar como comunidad.</p>
+        <div class="blog-header">
+            <h2>📖 Nuestro Blog: Palabra, Vida y Misión</h2>
+            <p>Reflexiones, testimonios y enseñanzas para caminar juntos en el amor al Verbo.</p>
+        </div>
+
+        <div class="categorias">
+            <a href="#" class="categoria-btn activo">Todas</a>
+            <a href="#" class="categoria-btn">Espiritualidad</a>
+            <a href="#" class="categoria-btn">Testimonios</a>
+            <a href="#" class="categoria-btn">Formación</a>
+        </div>
 
         <div class="blog-grid">
-            <!-- Artículo 1 -->
+            <!-- Artículo 1: Espiritualidad -->
             <article class="blog-item">
-                <div class="blog-fecha">10 Junio 2025</div>
-                <h3>El Verbo que se hace presente en lo cotidiano</h3>
-                <p class="blog-extracto">¿Dónde encontrar a Dios en medio del ruido, las obligaciones y el cansancio? En este artículo, exploramos cómo el Verbo habita en los pequeños gestos de cada día...</p>
-                <a href="articulo1.html" class="btn-leer">Leer artículo completo</a>
+                <img src="../imagenes/blog-espiritualidad.jpg" alt="El Verbo en lo cotidiano" class="blog-miniatura">
+                <div class="blog-contenido">
+                    <div class="blog-fecha">10 Junio 2025 • Espiritualidad</div>
+                    <h3>El Verbo que se hace presente en lo cotidiano</h3>
+                    <p class="blog-extracto">¿Dónde encontrar a Dios en medio del ruido, las obligaciones y el cansancio? En este artículo, exploramos cómo el Verbo habita en los pequeños gestos de cada día...</p>
+                    <a href="articulo1.html" class="btn-leer">Leer artículo completo</a>
+                </div>
             </article>
 
-            <!-- Artículo 2 (puedes agregar más copiando este bloque) -->
+            <!-- Artículo 2: Testimonio -->
             <article class="blog-item">
-                <div class="blog-fecha">3 Junio 2025</div>
-                <h3>Testimonio: Mi encuentro con la comunidad</h3>
-                <p class="blog-extracto">“Nunca pensé que encontraría un lugar donde mi fe y mi servicio pudieran crecer juntos...” — Compartimos el testimonio de Ana, miembro desde hace 2 años.</p>
-                <a href="#" class="btn-leer">Leer artículo completo</a>
+                <img src="../imagenes/blog-testimonio.jpg" alt="Testimonio de Ana" class="blog-miniatura">
+                <div class="blog-contenido">
+                    <div class="blog-fecha">3 Junio 2025 • Testimonios</div>
+                    <h3>Testimonio: Mi encuentro con la comunidad</h3>
+                    <p class="blog-extracto">“Nunca pensé que encontraría un lugar donde mi fe y mi servicio pudieran crecer juntos...” — Compartimos el testimonio de Ana, miembro desde hace 2 años.</p>
+                    <a href="#" class="btn-leer">Leer artículo completo</a>
+                </div>
+            </article>
+
+            <!-- Artículo 3: Formación -->
+            <article class="blog-item">
+                <img src="../imagenes/blog-formacion.jpg" alt="Formación en la Palabra" class="blog-miniatura">
+                <div class="blog-contenido">
+                    <div class="blog-fecha">28 Mayo 2025 • Formación</div>
+                    <h3>La Lectio Divina: Escuchar con el corazón</h3>
+                    <p class="blog-extracto">Guía práctica para introducirte en la Lectio Divina, el arte de escuchar la Palabra no solo con la mente, sino con el corazón abierto al Espíritu.</p>
+                    <a href="#" class="btn-leer">Leer artículo completo</a>
+                </div>
             </article>
         </div>
     </section>
