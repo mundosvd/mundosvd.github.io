@@ -8,99 +8,115 @@
     <style>
         .blog-header {
             text-align: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .categorias {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
             margin-bottom: 2rem;
         }
 
-        .categoria-btn {
-            background: #f8f9fa;
-            border: 2px solid #2d1b4e;
-            color: #2d1b4e;
-            padding: 0.5rem 1.2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
+        /* Barra de búsqueda */
+        .buscador {
+            max-width: 600px;
+            margin: 1.5rem auto;
+            position: relative;
+        }
+
+        #busqueda {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            font-size: 1.1rem;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            outline: none;
             transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        .categoria-btn:hover,
-        .categoria-btn.activo {
-            background: #2d1b4e;
-            color: white;
+        #busqueda:focus {
+            border-color: #e74c3c;
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.2);
         }
 
+        /* Cuadrícula de artículos */
         .blog-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-            margin: 0 auto;
-            max-width: 900px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 1rem;
         }
 
         .blog-item {
             background: white;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
         }
 
         .blog-item:hover {
             transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
         .blog-miniatura {
             width: 100%;
-            height: 220px;
+            height: 180px;
             object-fit: cover;
             display: block;
         }
 
         .blog-contenido {
-            padding: 1.8rem;
+            padding: 1.5rem;
         }
 
         .blog-fecha {
-            color: #e74c3c;
+            color: #7f8c8d;
+            font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            font-size: 0.95rem;
         }
 
         .blog-item h3 {
             color: #2d1b4e;
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-
-        .blog-extracto {
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-            color: #555;
+            line-height: 1.4;
         }
 
         .btn-leer {
             display: inline-block;
             background: #2d1b4e;
             color: white;
-            padding: 0.7rem 1.4rem;
+            padding: 0.5rem 1.2rem;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 6px;
             font-weight: 600;
+            font-size: 0.95rem;
             transition: background 0.3s;
         }
 
         .btn-leer:hover {
             background: #e74c3c;
-            letter-spacing: 0.5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 1.8rem;
+            }
+
+            #busqueda {
+                padding: 0.9rem 1.2rem;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -120,56 +136,74 @@
 
     <section class="seccion">
         <div class="blog-header">
-            <h2>📖 Nuestro Blog: Palabra, Vida y Misión</h2>
-            <p>Reflexiones, testimonios y enseñanzas para caminar juntos en el amor al Verbo.</p>
+            <h2>📖 Blog: Palabra y Vida</h2>
+            <p>Reflexiones, testimonios y enseñanzas de nuestra comunidad.</p>
         </div>
 
-        <div class="categorias">
-            <a href="#" class="categoria-btn activo">Todas</a>
-            <a href="#" class="categoria-btn">Espiritualidad</a>
-            <a href="#" class="categoria-btn">Testimonios</a>
-            <a href="#" class="categoria-btn">Formación</a>
+        <!-- Barra de búsqueda -->
+        <div class="buscador">
+            <input type="text" id="busqueda" placeholder="Buscar en el blog...">
         </div>
 
-        <div class="blog-grid">
-            <!-- Artículo 1: Espiritualidad -->
+        <!-- Cuadrícula de artículos -->
+        <div class="blog-grid" id="contenedor-articulos">
+            <!-- Artículo 1 -->
             <article class="blog-item">
                 <img src="../imagenes/blog-espiritualidad.jpg" alt="El Verbo en lo cotidiano" class="blog-miniatura">
                 <div class="blog-contenido">
-                    <div class="blog-fecha">10 Junio 2025 • Espiritualidad</div>
-                    <h3>El Verbo que se hace presente en lo cotidiano</h3>
-                    <p class="blog-extracto">¿Dónde encontrar a Dios en medio del ruido, las obligaciones y el cansancio? En este artículo, exploramos cómo el Verbo habita en los pequeños gestos de cada día...</p>
-                    <a href="articulo1.html" class="btn-leer">Leer artículo completo</a>
+                    <div class="blog-fecha">10 Jun 2025</div>
+                    <h3>El Verbo en lo cotidiano</h3>
+                    <a href="articulo1.html" class="btn-leer">Leer más</a>
                 </div>
             </article>
 
-            <!-- Artículo 2: Testimonio -->
+            <!-- Artículo 2 -->
             <article class="blog-item">
                 <img src="../imagenes/blog-testimonio.jpg" alt="Testimonio de Ana" class="blog-miniatura">
                 <div class="blog-contenido">
-                    <div class="blog-fecha">3 Junio 2025 • Testimonios</div>
-                    <h3>Testimonio: Mi encuentro con la comunidad</h3>
-                    <p class="blog-extracto">“Nunca pensé que encontraría un lugar donde mi fe y mi servicio pudieran crecer juntos...” — Compartimos el testimonio de Ana, miembro desde hace 2 años.</p>
-                    <a href="#" class="btn-leer">Leer artículo completo</a>
+                    <div class="blog-fecha">3 Jun 2025</div>
+                    <h3>Mi encuentro con la comunidad</h3>
+                    <a href="#" class="btn-leer">Leer más</a>
                 </div>
             </article>
 
-            <!-- Artículo 3: Formación -->
+            <!-- Artículo 3 -->
             <article class="blog-item">
-                <img src="../imagenes/blog-formacion.jpg" alt="Formación en la Palabra" class="blog-miniatura">
+                <img src="../imagenes/blog-formacion.jpg" alt="Lectio Divina" class="blog-miniatura">
                 <div class="blog-contenido">
-                    <div class="blog-fecha">28 Mayo 2025 • Formación</div>
-                    <h3>La Lectio Divina: Escuchar con el corazón</h3>
-                    <p class="blog-extracto">Guía práctica para introducirte en la Lectio Divina, el arte de escuchar la Palabra no solo con la mente, sino con el corazón abierto al Espíritu.</p>
-                    <a href="#" class="btn-leer">Leer artículo completo</a>
+                    <div class="blog-fecha">28 May 2025</div>
+                    <h3>La Lectio Divina</h3>
+                    <a href="#" class="btn-leer">Leer más</a>
                 </div>
             </article>
+
+            <!-- Puedes agregar más artículos copiando estos bloques -->
         </div>
     </section>
 
     <footer>
         <p>&copy; 2025 Misioneros Laicos Amigos del Verbo — “Muchos Rostros, Un Solo Corazón”</p>
     </footer>
+
+    <!-- Script de búsqueda (básico, sin backend) -->
+    <script>
+        document.getElementById('busqueda').addEventListener('input', function() {
+            const termino = this.value.toLowerCase();
+            const articulos = document.querySelectorAll('.blog-item');
+            
+            articulos.forEach(articulo => {
+                const titulo = articulo.querySelector('h3').textContent.toLowerCase();
+                const fecha = articulo.querySelector('.blog-fecha').textContent.toLowerCase();
+                // Si quieres buscar también en el extracto, necesitarías agregarlo al HTML
+
+                if (titulo.includes(termino) || fecha.includes(termino)) {
+                    articulo.style.display = 'block';
+                } else {
+                    articulo.style.display = 'none';
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
